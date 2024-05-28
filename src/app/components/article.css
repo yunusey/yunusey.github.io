@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+li {
+	color: #dedfdf;
+}
+
+li::marker {
+	color: #7EC6EC;
+}
