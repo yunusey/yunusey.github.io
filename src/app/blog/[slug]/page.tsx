@@ -1,47 +1,29 @@
-'use client';
-
 import { notFound, useParams } from "next/navigation";
-import { useEffect, useState } from "react";
 import matter from "gray-matter";
+import { promises as fs } from "fs";
 import Article from "@/app/components/article";
 import Background from "@/app/components/background";
+import { promises } from "fs";
+
+export async function generateStaticParams() {
+	const files = await fs.readdir(process.cwd() + "/public/articles");
+
+	return files.map((file) => ({
+		slug: file.replace(".md", ""),
+	}));
+}
 
 const getArticle = async (slug: string) => {
-	const article = await fetch(`/articles/${slug}.md`)
-	if (!article.ok) {
-		throw new Error("Article not found!");
-	}
-	return await article.text();
+	const article = await fs.readFile(process.cwd() + `/public/articles/${slug}.md`, "utf-8");
+	const { content, data } = matter(article);
+	return content;
 };
 
-export default function Page() {
-	// Get the article slug from the URL
-	const params = useParams();
+export default async function Page(
+	{ params } : { params: { slug: string } }
+) {
 	const { slug } = params;
-	if (typeof slug !== "string") {
-		// TODO: Handle error
-		notFound();
-	}
-
-	// Get the article from slug
-	const [article, setArticle] = useState('');
-	const [found, setFound] = useState(true);
-	useEffect(() => {
-		getArticle(slug).then((text) => {
-			const { data, content } = matter(text);
-			// TODO: Use the `data` maybe.
-			setArticle(content);
-			setFound(true);
-		}).catch((_) => {
-			// Redirect to 404
-			setFound(false);
-		})
-	});
-
-	if (!found) {
-		notFound();
-	}
-
+	const article = await getArticle(slug);
 	return (
 		<div className="flex flex-col items-center justify-center m-10">
 			<Background />

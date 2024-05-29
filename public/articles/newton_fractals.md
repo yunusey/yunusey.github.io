@@ -33,7 +33,7 @@ image: https://github.com/yunusey/NewtonFractals/blob/main/icon.png?raw=true
 }
 </style>
 <div class="container">
-    <iframe class="responsive-iframe" src="https://www.youtube.com/embed/Vc2Q53hQb30" title="This is one of my favorite video game exploits" frameborder="0" allowfullscreen></iframe>
+    <iframe class="responsive-iframe" src="https://www.youtube.com/embed/voszkR4Pq9c" title="This is one of my favorite video game exploits" frameborder="0" allowfullscreen></iframe>
 </div>
 
 ## Introduction
