@@ -1,14 +1,13 @@
 ---
-title: Newton Fractals
-date: 05/27/2024
-image: https://github.com/yunusey/NewtonFractals/blob/main/icon.png?raw=true
+title: The Beauty of Newton Fractals
+date: 04/27/2024
+image: /img/newton_fractals.png
 ---
 
-# Newton Fractals
+# The Beauty of Newton Fractals
 
 <div align="center" border-radius="20px">
-    <img src="https://github.com/yunusey/NewtonFractals/blob/main/icon.png?raw=true" width="200" height="200" />
-    <em>You can watch the sample video <a href="https://www.youtube.com/watch?v=voszkR4Pq9c">here</a>.</em>
+    <img src="/img/newton_fractals.png" width="200" height="200" />
 </div>
 <br/>
 <iframe width="100%" frameborder="0" src="https://itch.io/embed/2673635">
